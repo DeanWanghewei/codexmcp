@@ -3,7 +3,7 @@
 <div align="center">
 
 
-**让 Claude Code 与 Codex 无缝协作** 
+**让 Claude Code 与 Codex 无缝协作**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io)[![Share](https://img.shields.io/badge/share-000000?logo=x&logoColor=white)](https://x.com/intent/tweet?text=CodexMCP：让%20Claude%20Code%20与%20Codex%20无缝协作%20https://github.com/GuDaStudio/codexmcp%20%23AI%20%23Coding%20%23MCP) [![Share](https://img.shields.io/badge/share-1877F2?logo=facebook&logoColor=white)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/GuDaStudio/codexmcp) [![Share](https://img.shields.io/badge/share-FF4500?logo=reddit&logoColor=white)](https://www.reddit.com/submit?title=CodexMCP：让%20Claude%20Code%20与%20Codex%20无缝协作&url=https://github.com/GuDaStudio/codexmcp) [![Share](https://img.shields.io/badge/share-0088CC?logo=telegram&logoColor=white)](https://t.me/share/url?url=https://github.com/GuDaStudio/codexmcp&text=CodexMCP：让%20Claude%20Code%20与%20Codex%20无缝协作)
 
@@ -16,7 +16,7 @@
 
 ---
 
-## 一、项目简介 
+## 一、项目简介
 
 在当前 AI 辅助编程生态中，**Claude Code** 擅长架构设计与全局思考，而 **Codex** 在代码生成与细节优化上表现卓越。**CodexMCP** 作为两者之间的桥梁，通过 MCP 协议让它们优势互补：
 
@@ -89,7 +89,7 @@ claude mcp list
 
 > [!IMPORTANT]
 > 如果看到如下描述，说明安装成功！
->  `codex: uvx --from git+https://github.com/GuDaStudio/codexmcp.git codexmcp - ✓ Connected` 
+>  `codex: uvx --from git+https://github.com/GuDaStudio/codexmcp.git codexmcp - ✓ Connected`
 
 **1.4** 可选择默认允许claude code自动与codex交互，在`~/.claude/settings.json`添加 `mcp__codex__codex` allow项
 ![](images/image.png)
@@ -133,6 +133,7 @@ claude mcp list
   - SESSION_ID (UUID | null): 用于继续之前的会话以与codex进行多轮交互，默认为 None（开启新会话）
   - skip_git_repo_check (boolean): 是否允许在非 Git 仓库中运行，默认 False
   - return_all_messages (boolean): 是否返回所有消息（包括推理、工具调用等），默认 False
+  - profile (string | null): 从 codex config.toml 中指定要使用的配置 profile 名称。如果项目根目录存在 .codex-profile 文件（文件内容为 profile 名称，如 `ais_codexmcp`），在调用 MCP 工具时应将该文件中的内容作为此参数传递。默认为 None（使用 codex 默认配置）
 
   返回值：
   {
@@ -195,6 +196,7 @@ claude mcp list
 | `SESSION_ID` | `UUID \| None` | ❌ | `None` | 会话 ID（None 则开启新会话） |
 | `skip_git_repo_check` | `bool` | ❌ | `False` | 是否允许在非 Git 仓库运行 |
 | `return_all_messages` | `bool` | ❌ | `False` | 是否返回完整推理信息 |
+| `profile` | `str \| None` | ❌ | `None` | 配置 profile 名称（可从项目根目录 .codex-profile 文件读取） |
 
 </details>
 
@@ -228,7 +230,7 @@ claude mcp list
 <details>
 <summary>Q1: 是否需要额外付费？</summary>
 
- **CodexMCP 本身完全免费开源，无需任何额外付费！** 
+ **CodexMCP 本身完全免费开源，无需任何额外付费！**
 
 </details>
 

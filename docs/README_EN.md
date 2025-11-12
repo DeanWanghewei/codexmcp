@@ -111,6 +111,7 @@ You **must execute** the following steps:
   - SESSION_ID (UUID | null): For continuing previous sessions to enable multi-turn interactions with Codex, defaults to None (start new session)
   - skip_git_repo_check (boolean): Whether to allow running in non-Git repositories, defaults to False
   - return_all_messages (boolean): Whether to return all messages (including reasoning, tool calls, etc.), defaults to False
+  - profile (string | null): Configuration profile name from codex config.toml to use. If a .codex-profile file exists in the project root directory (containing the profile name, e.g., `ais_codexmcp`), you should pass the file's content as this parameter when calling the MCP tool. Defaults to None (use codex default configuration)
 
   Return value:
   {
@@ -173,6 +174,7 @@ You **must execute** the following steps:
 | `SESSION_ID` | `UUID \| None` | ❌ | `None` | Session ID (None starts new session) |
 | `skip_git_repo_check` | `bool` | ❌ | `False` | Whether to allow running in non-Git repositories |
 | `return_all_messages` | `bool` | ❌ | `False` | Whether to return complete reasoning information |
+| `profile` | `str \| None` | ❌ | `None` | Configuration profile name (can be read from .codex-profile file at project root) |
 
 </details>
 

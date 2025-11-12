@@ -148,11 +148,18 @@ async def codex(
         bool,
         "Return all messages (e.g. reasoning, tool calls, etc.) from the codex session. Set to `False` by default, only the agent's final reply message is returned.",
     ] = False,
+    profile: Annotated[
+        Optional[str],
+        "Configuration profile from config.toml to specify default options. If not provided, uses the default profile.",
+    ] = None,
 ) -> Dict[str, Any]:
     """Execute a Codex CLI session and return the results."""
     # Build command as list to avoid injection
     cmd = ["codex", "exec", "--sandbox", sandbox, "--cd", str(cd), "--json"]
-    
+
+    if profile is not None:
+        cmd.extend(["--profile", profile])
+
     if skip_git_repo_check:
         cmd.append("--skip-git-repo-check")
 
